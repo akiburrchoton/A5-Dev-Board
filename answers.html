@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>DevBoard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style -->
+    <style type="text/tailwindcss">
+      @theme {
+        --color-accent: #3752fd;
+        --color-textColor: #1e1e1e;
+        --color-primary: #6c7ffa;
+        --color-secondary: #9ba8f8;
+        --font-primary: "Poppins", sans-serif;
+        --container: 1536px;
+        --line-height-title: 70px;
+        --line-height-text: 35px;
+        --color-light-background: #f4f7ff;
+      }
+    </style>
+  </head>
+  <body class="bg-light-background">
+    <header class="flex justify-center pt-6 pb-6 text-textColor">
+      <nav
+        class="container flex items-center justify-between bg-white px-6 py-6 rounded-xl"
+      >
+        <div class="flex items-center justify-between">
+          <img class="" src="assets/logo.png" alt="" />
+          <p class="pl-2 font-primary text-4xl">
+            Dev<span class="font-bold">Board</span>
+          </p>
+        </div>
+
+        <div class="flex justify-between">
+          <div class="flex justify-between items-center">
+            <button
+              id="back-button"
+              class="bg-[#3752fd] hover:bg-primary text-primary font-semibold px-5 py-[10px] text-white rounded-lg"
+              href="#"
+            >
+              Back to Desk
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="flex justify-center">
+      <section class="container">
+        <h1 class="text-center font-primary text-3xl font-semibold mb-6">
+          BLOG
+        </h1>
+
+        <div class="font-primary">
+          <!-- Q1 -->
+          <div class="bg-white px-5 py-6 mb-6 rounded-xl">
+            <p class="font-semibold mb-6">
+              Question-1: What are the different ways to select an element in
+              the DOM?
+            </p>
+            <p>
+              Answer: We can select an element in different ways such as using
+              <strong
+                >getElementById(), getElementsByClassName(),
+                getElementsByTagName(), querySelector,
+                querySelectorAll().</strong
+              >
+            </p>
+          </div>
+
+          <!-- Q2 -->
+          <div class="bg-white px-5 py-6 rounded-xl mb-6">
+            <p class="font-semibold mb-6">
+              Question-2: What is the difference between innerHTML, innerText,
+              and textContent?
+            </p>
+            <p>
+              Answer: - By the innerHTML, we can set or get the HTML content
+              inside the element incluging tags. It also renders bold text.
+              <br />
+
+              - innerText only works with the available texts inside the element
+              and it ignores hidden elements.
+
+              <br />
+
+              - Finally, textContent works with all the texts inside the element
+              including hidden ones and HTML tags.
+            </p>
+          </div>
+
+          <!-- Q3 -->
+          <div class="bg-white px-5 py-6 rounded-xl mb-6">
+            <p class="font-semibold mb-6">
+              Question-3: What is event delegation in the DOM?
+            </p>
+            <p>
+              Answer: Event delegation is a process of using event propagation
+              or bubbling so that we can handle events at a higher level in the
+              DOM than the element on which the event is from.
+            </p>
+          </div>
+
+          <!-- Q4 -->
+          <div class="bg-white px-5 py-6 rounded-xl mb-6">
+            <p class="font-semibold mb-6">
+              Question-4: What is event bubbling in the DOM?
+            </p>
+            <p>
+              Answer: Event bubbling is a process when an event triggered on a
+              child element and it keeps going upward through its parent
+              elements.
+            </p>
+          </div>
+
+          <!-- Q5 -->
+          <div class="bg-white px-5 py-6 rounded-xl mb-6">
+            <p class="font-semibold mb-6">
+              Question-5: How do you create, add, and remove elements using
+              JavaScript?
+            </p>
+            <p>
+              Answer: By using createElement() to create, appendChild() to add
+              anything, removeChild() to remove something.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="answer.js"></script>
+  </body>
+</html>

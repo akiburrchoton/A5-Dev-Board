@@ -3,7 +3,354 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>DevBoard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style -->
+    <style type="text/tailwindcss">
+      @theme {
+        --color-accent: #3752fd;
+        --color-textColor: #1e1e1e;
+        --color-primary: #6c7ffa;
+        --color-secondary: #9ba8f8;
+        --font-primary: "Poppins", sans-serif;
+        --container: 1536px;
+        --line-height-title: 70px;
+        --line-height-text: 35px;
+        --color-light-background: #f4f7ff;
+      }
+    </style>
   </head>
-  <body></body>
+  <body class="bg-light-background">
+    <header class="flex justify-center pt-6 pb-6 text-textColor">
+      <nav
+        class="container flex items-center justify-between bg-white px-6 py-6 rounded-xl"
+      >
+        <div class="flex items-center justify-between">
+          <img class="" src="assets/logo.png" alt="" />
+          <p class="pl-2 font-primary text-4xl">
+            Dev<span class="font-bold">Board</span>
+          </p>
+        </div>
+
+        <div class="flex justify-between">
+          <div class="flex justify-between items-center">
+            <img src="assets/checkbox.png" alt="" />
+            <span
+              id="total-completed-tasks"
+              class="text-3xl font-primary font-bold pl-4"
+              >23</span
+            >
+          </div>
+          <div class="pl-8">
+            <img id="theme-btn" src="assets/theme-btn.png" alt="" />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="flex justify-center">
+      <section class="container grid grid-cols-3 gap-4">
+        <!-- Left Panel -->
+        <div class="col-span-2 bg-white rounded-2xl px-4 py-4 grid gap-6">
+          <!-- Task Info : (Top) -->
+          <div class="grid grid-cols-4 gap-4">
+            <div
+              class="flex items-center bg-light-background px-6 py-6 rounded-2xl"
+            >
+              <div class="bg-white p-4 rounded-4xl">
+                <img class="w-[24px]" src="assets/checkbox.png" alt="" />
+              </div>
+
+              <div class="pl-4">
+                <p class="font-primary text-textColor text-md">Task Assigned</p>
+                <p class="font-primary text-2xl font-bold">
+                  0<span id="task-assigned">5</span>
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="discover-new"
+              class="col-span-2 flex items-center bg-primary rounded-xl pl-8 pr-14 py-6 hover:cursor-pointer"
+            >
+              <img src="assets/board.png" alt="" />
+              <p class="text-2xl font-medium pl-6 text-white font-primary">
+                Discover Something New Today!
+              </p>
+            </div>
+
+            <div
+              class="flex items-center bg-light-background px-6 py-6 rounded-2xl"
+            >
+              <img
+                class="bg-white p-4 rounded-4xl"
+                src="assets/calender.png"
+                alt=""
+              />
+              <div class="font-primary text-textColor text-xl">
+                <p id="current-date" class="font-bold"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task Cards : (Bottom)  -->
+          <div id="task-cards" class="grid grid-cols-3 gap-5 font-primary">
+            <!-- Task Card -->
+            <div class="bg-light-background p-5">
+              <div>
+                <p
+                  class="bg-white rounded-xl w-[115px] mb-5 px-4 py-2 text-center"
+                >
+                  ShopEase
+                </p>
+                <p class="text-2xl font-medium text-textColor mb-5">
+                  Fix Mobile Button Issue
+                </p>
+                <div class="bg-white px-4 py-6 mb-5">
+                  <p class="text-[#939393]">
+                    Debug using Chrome DevTools, check for overlappi...
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[#767676] text-sm">Deadline</p>
+                  <p class="font-medium text-textColor">21 March 2025</p>
+                </div>
+                <div>
+                  <button
+                    id="completed-button"
+                    class="bg-[#3752fd] hover:bg-primary text-primary px-5 py-[10px] text-white rounded-xl"
+                    href="#"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Task Card -->
+            <div class="bg-light-background p-5">
+              <div>
+                <p
+                  class="bg-white rounded-xl w-[115px] mb-5 px-4 py-2 text-center"
+                >
+                  CloudSync
+                </p>
+                <p class="text-2xl font-medium text-textColor mb-5">
+                  Add Dark Mode
+                </p>
+                <div class="bg-white px-3 py-6 mb-5">
+                  <p class="text-[#939393]">
+                    Store the user's preference in localStorage, update CSS
+                    vari...
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[#767676] text-sm">Deadline</p>
+                  <p class="font-medium text-textColor">21 March 2025</p>
+                </div>
+                <div>
+                  <button
+                    id="completed-button"
+                    class="bg-[#3752fd] hover:bg-primary text-primary px-5 py-[10px] text-white rounded-xl disabled:bg-[#9ba8f8]"
+                    disabled
+                    href="#"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Task Card -->
+            <div class="bg-light-background p-5">
+              <div>
+                <p
+                  class="bg-white rounded-xl w-[115px] mb-5 px-4 py-2 text-center"
+                >
+                  SwiftPay
+                </p>
+                <p class="text-2xl font-medium text-textColor mb-5">
+                  Optimize Home page 
+                </p>
+                <div class="bg-white px-4 py-6 mb-5">
+                  <p class="text-[#939393]">
+                    Debug using Chrome DevTools, check for overlappi...
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[#767676] text-sm">Deadline</p>
+                  <p class="font-medium text-textColor">21 March 2025</p>
+                </div>
+                <div>
+                  <button
+                    id="completed-button"
+                    class="bg-[#3752fd] hover:bg-primary text-primary px-5 py-[10px] text-white rounded-xl"
+                    href="#"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Task Card -->
+            <div class="bg-light-background p-5">
+              <div>
+                <p
+                  class="bg-white rounded-xl w-[115px] mb-5 px-4 py-2 text-center"
+                >
+                  Meta
+                </p>
+                <p class="text-2xl font-medium text-textColor mb-5">
+                  Add new emoji 🤲
+                </p>
+                <div class="bg-white px-4 py-6 mb-5">
+                  <p class="text-[#939393]">
+                    Debug using Chrome DevTools, check for overlappi...
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[#767676] text-sm">Deadline</p>
+                  <p class="font-medium text-textColor">21 March 2025</p>
+                </div>
+                <div>
+                  <button
+                    id="completed-button"
+                    class="bg-[#3752fd] hover:bg-primary text-primary px-5 py-[10px] text-white rounded-xl"
+                    href="#"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Task Card -->
+            <div class="bg-light-background p-5">
+              <div>
+                <p
+                  class="bg-white rounded-xl w-[130px] mb-5 px-4 py-2 text-center"
+                >
+                  Google LLC
+                </p>
+                <p class="text-2xl font-medium text-textColor mb-5">
+                  Integrate OpenAI API
+                </p>
+                <div class="bg-white px-4 py-6 mb-5">
+                  <p class="text-[#939393]">
+                    Debug using Chrome DevTools, check for overlappi...
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[#767676] text-sm">Deadline</p>
+                  <p class="font-medium text-textColor">21 March 2025</p>
+                </div>
+                <div>
+                  <button
+                    id="completed-button"
+                    class="bg-[#3752fd] hover:bg-primary text-primary px-5 py-[10px] text-white rounded-xl"
+                    href="#"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Task Card -->
+            <div class="bg-light-background p-5">
+              <div>
+                <p
+                  class="bg-white rounded-xl w-[115px] mb-5 px-4 py-2 text-center"
+                >
+                  Glassdoor
+                </p>
+                <p class="text-[23px] font-medium text-textColor mb-5">
+                  Improve Job searching
+                </p>
+                <div class="bg-white px-4 py-6 mb-5">
+                  <p class="text-[#939393]">
+                    Debug using Chrome DevTools, check for overlappi...
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[#767676] text-sm">Deadline</p>
+                  <p class="font-medium text-textColor">21 March 2025</p>
+                </div>
+                <div>
+                  <button
+                    id="completed-button"
+                    class="bg-[#3752fd] hover:bg-primary text-primary px-5 py-[10px] text-white rounded-xl"
+                    href="#"
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel  -->
+        <div class="bg-white rounded-2xl px-4 py-4">
+          <div
+            class="flex items-center justify-center font-primary text-sm font-medium mb-3"
+          >
+            <img class="w-6" src="assets/activity.png" alt="" />
+            <p class="text-xl pl-4">Activity Log</p>
+          </div>
+
+          <div class="flex justify-center mb-10 font-primary">
+            <button
+              id="clear-button"
+              class="bg-[#3752fd] hover:bg-primary text-primary px-5 py-3 text-white rounded-lg"
+            >
+              Clear History
+            </button>
+          </div>
+
+          <div id="completed-task-list" class="">
+            <p
+              class="font-primary bg-light-background px-2 py-3 rounded-xl mb-6"
+            >
+              You have Completed The Task
+              <span class="font-bold text-primary"> Add Dark Mode</span> at
+              <span>12:48:15 PM</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
 </html>
+
+<!-- TO DO 
+  - FAQ Page
+  - Add Current Time
+  - Random Color
+-->
